@@ -7,9 +7,9 @@ services:
       - "3000:80"
       - "3001:5901"
     environment:
-      - VNC_PASSWORD=2018stang
+      - VNC_PASSWORD=admin
       - USER=jovyan
-      - PASSWORD=2018stang
+      - PASSWORD=x
     command: >
       bash -c "
         usermod -aG sudo jovyan &&
