@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  vnc-desktop:
+    image: dorowu/ubuntu-desktop-lxde-vnc
+    ports:
+      - "3000:80"
+      - "3001:5901"
+    environment:
+      - VNC_PASSWORD=2018stang
+      - USER=jovyan
+      - PASSWORD=2018stang
+    command: >
+      bash -c "
+        usermod -aG sudo jovyan &&
+        echo 'jovyan ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers &&
+        /startup.sh
+      "
+    restart: unless-stopped
